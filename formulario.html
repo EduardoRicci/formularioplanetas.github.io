@@ -2,32 +2,64 @@
 <html>
 <head>
     <title>Cadastro de Planetas</title>
+    <script>
+        function updatePreview(value) {
+            document.getElementById('distanciaPreview').innerText = value;
+        }
+    </script>
 </head>
 <body>
     <h1>Cadastro de Planetas</h1>
     <form>
         <label for="nome">Nome do Planeta:</label>
-        <input type="text" id="nome" name="nome" required>
+        <select id="nome" name="nome" required>
+            <option value="" disabled selected>Selecione um planeta</option>
+            <option value="Mercúrio">Mercúrio</option>
+            <option value="Vênus">Vênus</option>
+            <option value="Terra">Terra</option>
+            <option value="Marte">Marte</option>
+            <option value="Júpiter">Júpiter</option>
+            <option value="Saturno">Saturno</option>
+            <option value="Urano">Urano</option>
+            <option value="Netuno">Netuno</option>
+        </select>
+
+        <br>
         <br>
 
         <label for="distancia">Distância do Sol (UA):</label>
-        <input type="number" id="distancia" name="distancia" step="0.01" required>
+        <input type="range" id="distancia" name="distancia" min="0" max="100" step="0.01" required oninput="updatePreview(this.value)">
+        <span id="distanciaPreview">0</span>
+        
+        <br>
         <br>
 
         <label for="diametro">Diâmetro (km):</label>
-        <input type="number" id="diametro" name="diametro" required>
+        <input type="tel" id="diametro" name="diametro" required pattern="\d*">
+        
+        <br>
         <br>
 
         <label for="numero_luas">Número de Luas:</label>
-        <input type="number" id="numero_luas" name="numero_luas" required>
+        <input type="checkbox" id="numero_luas1" name="numero_luas" value="1"> 1
+        <input type="checkbox" id="numero_luas2" name="numero_luas" value="2"> 2
+        <input type="checkbox" id="numero_luas3" name="numero_luas" value="3"> 3
+        <input type="checkbox" id="numero_luas4" name="numero_luas" value="4"> 4
+        <input type="checkbox" id="numero_luas5" name="numero_luas" value="5"> 5
+        
+        <br>
         <br>
 
         <label for="tempo_rotacao">Tempo de Rotação (horas):</label>
-        <input type="number" id="tempo_rotacao" name="tempo_rotacao" required>
+        <input type="time" id="tempo_rotacao" name="tempo_rotacao" required>
+        
+        <br>
         <br>
 
         <label for="tempo_translacao">Tempo de Translação (dias):</label>
-        <input type="number" id="tempo_translacao" name="tempo_translacao" required>
+        <input type="date" id="tempo_translacao" name="tempo_translacao" required>
+        
+        <br>
         <br>
 
         <input type="submit" value="Cadastrar">
